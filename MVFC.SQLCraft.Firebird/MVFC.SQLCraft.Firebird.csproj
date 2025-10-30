@@ -14,10 +14,15 @@
 		<PackageProjectUrl>https://www.nuget.org/packages/MVFC.SQLCraft.Firebird</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/tree/master/MVFC.SQLCraft.Firebird</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
+		<PackageIcon>icon.png</PackageIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<None Include="README.md" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="icon.png" Pack="true" PackagePath="" />
 	</ItemGroup>
 
 	<ItemGroup>
