@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net9.0</TargetFramework>
+		<TargetFrameworks>net9.0;net10.0</TargetFrameworks>
 		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
@@ -26,12 +26,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="SonarAnalyzer.CSharp" Version="10.15.0.120848">
+		<PackageReference Include="SonarAnalyzer.CSharp" Version="10.15.*">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="sqlkata" Version="4.0.1" />
-		<PackageReference Include="sqlkata.execution" Version="4.0.1" />
+		<PackageReference Include="sqlkata" Version="4.0.*" />
+		<PackageReference Include="sqlkata.execution" Version="4.0.*" />
 	</ItemGroup>
 
 	<ItemGroup>
