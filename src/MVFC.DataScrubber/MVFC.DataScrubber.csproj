@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>MVFC.DataScrubber</AssemblyName>
+    <RootNamespace>MVFC.DataScrubber</RootNamespace>
+    <Description>A comprehensive .NET library for anonymizing and masking production data for safe use in development environments. Supports multiple databases (SQL Server, PostgreSQL, MySQL, Oracle, Firebird) and MongoDB with declarative masking rules and LGPD compliance.</Description>
+    <PackageTags>data-anonymization;masking;scrubbing;gdpr;lgpd;privacy;sql;mongodb;multi-bank</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../MVFC.SQLCraft/MVFC.SQLCraft.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Diagnostics" />
+    <PackageReference Include="FluentValidation" />
+  </ItemGroup>
+</Project>
