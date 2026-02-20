@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/MVFC.SQLCraft.Firebird/MVFC.SQLCraft.Firebird.csproj" />
+    <Project Path="src/MVFC.SQLCraft.MsSQL/MVFC.SQLCraft.MsSQL.csproj" />
+    <Project Path="src/MVFC.SQLCraft.Mysql/MVFC.SQLCraft.Mysql.csproj" />
+    <Project Path="src/MVFC.SQLCraft.Oracle/MVFC.SQLCraft.Oracle.csproj" />
+    <Project Path="src/MVFC.SQLCraft.PostgreSql/MVFC.SQLCraft.PostgreSql.csproj" />
+    <Project Path="src/MVFC.SQLCraft.SQLite/MVFC.SQLCraft.SQLite.csproj" />
+    <Project Path="src/MVFC.SQLCraft/MVFC.SQLCraft.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/MVFC.SQLCraft.Tests/MVFC.SQLCraft.Tests.csproj" />
+  </Folder>
+</Solution>

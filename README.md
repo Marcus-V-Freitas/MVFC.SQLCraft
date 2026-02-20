@@ -10,6 +10,7 @@ Conjunto de bibliotecas .NET para abstração e manipulação de bancos de dados
 - **MVFC.SQLCraft.PostgreSql**: Driver para PostgreSQL.
 - **MVFC.SQLCraft.SQLite**: Driver para SQLite.
 - **MVFC.SQLCraft.Firebird**: Driver para Firebird.
+- **MVFC.SQLCraft.Oracle**: Driver para Oracle.
 
 ## Instalação
 
@@ -23,6 +24,7 @@ dotnet add package MVFC.SQLCraft.Firebird
 dotnet add package MVFC.SQLCraft.MsSQL
 dotnet add package MVFC.SQLCraft.PostgreSql
 dotnet add package MVFC.SQLCraft.SQLite
+dotnet add package MVFC.SQLCraft.Oracle
 ```
 
 Repita para o driver desejado.
@@ -34,7 +36,7 @@ Repita para o driver desejado.
 
 ## Sobre
 
-- Compatível com .NET 9.0
+- Compatível com .NET 9.0+
 - Licença MIT
 - Cada projeto possui seu próprio README e documentação específica.
 

@@ -1,0 +1,27 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.19.0.132793" />
+    <PackageVersion Include="sqlkata" Version="4.0.1" />
+    <PackageVersion Include="sqlkata.execution" Version="4.0.1" />
+    <PackageVersion Include="microsoft.data.sqlclient" Version="6.1.4" />
+    <PackageVersion Include="FirebirdSql.Data.FirebirdClient" Version="10.3.4" />
+    <PackageVersion Include="MySqlConnector" Version="2.5.0" />
+    <PackageVersion Include="Oracle.ManagedDataAccess.Core" Version="23.26.100" />
+    <PackageVersion Include="Npgsql" Version="10.0.1" />
+    <PackageVersion Include="System.Data.SQLite" Version="2.0.2" />
+    <PackageVersion Include="Microsoft.Data.Sqlite" Version="10.0.3" />
+    <PackageVersion Include="coverlet.collector" Version="8.0.0" />
+    <PackageVersion Include="FluentAssertions" Version="7.0.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
+    <PackageVersion Include="xunit.v3" Version="3.2.2" />
+    <PackageVersion Include="Testcontainers.Oracle" Version="4.10.0" />
+    <PackageVersion Include="Testcontainers.MySql" Version="4.10.0" />
+    <PackageVersion Include="Testcontainers.PostgreSql" Version="4.10.0" />
+    <PackageVersion Include="Testcontainers.MsSql" Version="4.10.0" />
+    <PackageVersion Include="Testcontainers.FirebirdSql" Version="4.10.0" />    
+  </ItemGroup>
+</Project>
