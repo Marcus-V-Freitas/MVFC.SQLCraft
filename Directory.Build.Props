@@ -1,16 +1,19 @@
-<Project>
+﻿<Project>
 	<PropertyGroup>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-		<AnalysisLevel>latest</AnalysisLevel>
-		<AnalysisMode>Minimum</AnalysisMode>
-		<EnableNETAnalyzers>true</EnableNETAnalyzers>
-		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-		<Nullable>enable</Nullable>
-		<LangVersion>latest</LangVersion>
-		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="SonarAnalyzer.CSharp" />
-	</ItemGroup>
+	<PropertyGroup Condition="'$(IsTestProject)' != 'true'">
+    <Authors>Marcus V. Freitas</Authors>
+    <Company>MVFC</Company>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/Marcus-V-Freitas/MVFC.SQLCraft</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Marcus-V-Freitas/MVFC.SQLCraft</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
 </Project>

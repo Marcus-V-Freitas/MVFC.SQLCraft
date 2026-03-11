@@ -1,8 +1,7 @@
-﻿using MVFC.SQLCraft.Servicos.Logs;
+﻿namespace MVFC.SQLCraft.Mysql;
 
-namespace MVFC.SQLCraft.Mysql;
-
-public sealed class MysqlCraftDriver(string connectionString, IDatabaseLogger? logger = null) : SQLCraftDriver(connectionString, logger)
+public sealed class MysqlCraftDriver(string connectionString, IDatabaseLogger? logger = null)
+    : SQLCraftDriver(connectionString, logger)
 {
     protected override Compiler Compiler => new MySqlCompiler();
 

@@ -1,6 +1,7 @@
 ﻿namespace MVFC.SQLCraft.Servicos.Factory;
 
-public interface IQueryFactory {
+public interface IQueryFactory
+{
     public T? FirstOrDefault<T>(Query query, IDbTransaction? transaction = null, int? timeout = null);
 
     public IEnumerable<T> Get<T>(Query query, IDbTransaction? transaction = null, int? timeout = null);

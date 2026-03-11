@@ -9,12 +9,12 @@ public sealed class FirebirdContainerFixture : IAsyncLifetime
     public async ValueTask InitializeAsync()
     {
         _container = new FirebirdSqlBuilder("jacobalberty/firebird:latest")
-            .WithCleanUp(true)
-            .Build();
+                                    .WithCleanUp(true)
+                                    .Build();
 
-        await _container.StartAsync();
+        await _container.StartAsync().ConfigureAwait(true);
     }
 
     public async ValueTask DisposeAsync() => 
-        await _container.DisposeAsync();
+        await _container.DisposeAsync().ConfigureAwait(true);
 }

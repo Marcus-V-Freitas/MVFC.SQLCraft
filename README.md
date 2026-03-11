@@ -1,45 +1,229 @@
-# MVFC.SQLCraft - Solução Completa
+﻿# MVFC.SQLCraft
 
-Conjunto de bibliotecas .NET para abstração e manipulação de bancos de dados SQL, com suporte a múltiplos bancos e integração com [SqlKata](https://github.com/sqlkata/querybuilder).
+> 🇧🇷 [Leia em Português](README.pt-BR.md)
 
-## Projetos incluídos
+[![CI](https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/actions/workflows/ci.yml/badge.svg)](https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/Marcus-V-Freitas/MVFC.SQLCraft/branch/main/graph/badge.svg)](https://codecov.io/gh/Marcus-V-Freitas/MVFC.SQLCraft)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
+![Platform](https://img.shields.io/badge/.NET-9%20%7C%2010-blue)
 
-- **MVFC.SQLCraft**: Biblioteca base de abstração e utilitários SQL.
-- **MVFC.SQLCraft.Mysql**: Driver para MySQL/MariaDB.
-- **MVFC.SQLCraft.MsSQL**: Driver para Microsoft SQL Server.
-- **MVFC.SQLCraft.PostgreSql**: Driver para PostgreSQL.
-- **MVFC.SQLCraft.SQLite**: Driver para SQLite.
-- **MVFC.SQLCraft.Firebird**: Driver para Firebird.
-- **MVFC.SQLCraft.Oracle**: Driver para Oracle.
+A complete .NET library suite for SQL database abstraction and fluent query building, with multi-database support powered by [SqlKata](https://github.com/sqlkata/querybuilder).
 
-## Instalação
+## Motivation
 
-Cada driver é distribuído como pacote NuGet independente.  
-Exemplos:
+Working with multiple SQL databases in .NET often means:
+
+- Writing repetitive boilerplate for connection management and disposal.
+- Manually wiring up different ADO.NET drivers per database.
+- Duplicating transaction handling logic across repositories.
+- Losing observability without a consistent logging hook.
+- Mixing raw SQL strings with query builder calls inconsistently.
+
+**MVFC.SQLCraft** solves this by providing a single abstract driver base that every database-specific package extends. You pick the driver for your database, inherit from it, and get a consistent, battle-tested API for querying, executing, and managing transactions — with optional structured logging built in.
+
+## Architecture
+
+All packages follow the same pattern:
+
+- `SQLCraftDriver` (base class) — manages connections, logging lifecycle, and transaction scope.
+- `XxxCraftDriver` (driver class per database) — provides the `DbConnection` factory and the SqlKata `Compiler` for its dialect.
+- `IDatabaseLogger` (optional interface) — intercepts SQL before/after execution and on errors.
+- `IQueryFactory` / `DefaultQueryFactory` — thin wrapper around SqlKata's `QueryFactory`.
+
+Once you understand one driver, all others work identically.
+
+## Packages
+
+| Package | Database |
+|---|---|
+| [MVFC.SQLCraft](src/MVFC.SQLCraft/README.md) | Base abstractions |
+| [MVFC.SQLCraft.Mysql](src/MVFC.SQLCraft.Mysql/README.md) | MySQL / MariaDB |
+| [MVFC.SQLCraft.MsSQL](src/MVFC.SQLCraft.MsSQL/README.md) | Microsoft SQL Server |
+| [MVFC.SQLCraft.PostgreSql](src/MVFC.SQLCraft.PostgreSql/README.md) | PostgreSQL |
+| [MVFC.SQLCraft.SQLite](src/MVFC.SQLCraft.SQLite/README.md) | SQLite |
+| [MVFC.SQLCraft.Firebird](src/MVFC.SQLCraft.Firebird/README.md) | Firebird |
+| [MVFC.SQLCraft.Oracle](src/MVFC.SQLCraft.Oracle/README.md) | Oracle |
+
+***
+
+## Installation
+
+Install the base package and the driver for your target database:
 
 ```sh
+# Base abstractions (required)
 dotnet add package MVFC.SQLCraft
+
+# Pick your driver
 dotnet add package MVFC.SQLCraft.Mysql
-dotnet add package MVFC.SQLCraft.Firebird
 dotnet add package MVFC.SQLCraft.MsSQL
 dotnet add package MVFC.SQLCraft.PostgreSql
 dotnet add package MVFC.SQLCraft.SQLite
+dotnet add package MVFC.SQLCraft.Firebird
 dotnet add package MVFC.SQLCraft.Oracle
 ```
 
-Repita para o driver desejado.
+## Quick Start
 
-## Como usar
+### 1. Create your driver
+Inherit from the database-specific driver and pass your connection string:
 
-1. Instale o pacote base e o driver do banco desejado.
-2. Utilize as abstrações do MVFC.SQLCraft para criar conexões e executar queries.
+```csharp
+using MVFC.SQLCraft.Mysql;
 
-## Sobre
+public class MyAppDatabase : MysqlCraftDriver
+{
+    public MyAppDatabase(string connectionString)
+        : base(connectionString, logger: null) { }
+}
+```
 
-- Compatível com .NET 9.0+
-- Licença MIT
-- Cada projeto possui seu próprio README e documentação específica.
+### 2. Register with DI
 
-## Licença
+```csharp
+builder.Services.AddSingleton<MyAppDatabase>(_ =>
+    new MyAppDatabase(builder.Configuration.GetConnectionString("Default")!));
+```
 
-MIT
+### 3. Query fluently
+
+```csharp
+public class UserRepository
+{
+    private readonly MyAppDatabase _db;
+
+    public UserRepository(MyAppDatabase db) => _db = db;
+
+    public async Task<IEnumerable<User>> GetActiveUsersAsync(CancellationToken ct = default)
+    {
+        var query = new Query("users")
+            .Where("active", true)
+            .OrderByDesc("created_at")
+            .Limit(100);
+
+        return await _db.QueryAsync<User>(query, ct: ct);
+    }
+
+    public async Task<User?> GetByIdAsync(int id, CancellationToken ct = default)
+    {
+        var query = new Query("users").Where("id", id);
+        return await _db.QueryFirstOrDefaultAsync<User>(query, ct: ct);
+    }
+}
+```
+
+## Available API
+All methods are defined on SQLCraftDriver and available in every driver.
+
+### Query Methods
+
+| Method | Description |
+|---|---|
+| Query<T>(query, tx?) | Returns all matching rows |
+| QueryAsync<T>(query, tx?, ct) | Async version of Query<T> |
+| QueryFirstOrDefault<T>(query, tx?) | Returns the first matching row or null |
+| QueryFirstOrDefaultAsync<T>(query, tx?, ct) | Async version |
+
+### Execute Methods
+
+| Method | Description |
+|---|---|
+| Execute(query, tx?) | Executes a SqlKata Query (INSERT/UPDATE/DELETE) |
+| Execute(sql, tx?) | Executes a raw SQL string |
+| ExecuteAsync(query, tx?, ct) | Async version for Query |
+| ExecuteAsync(sql, tx?, ct) | Async version for raw SQL |
+
+### Transaction Methods
+
+| Method | Description |
+|---|---|
+| ExecuteInTransaction(action, isolation?) | Wraps a synchronous action in a managed transaction |
+| ExecuteInTransactionAsync(action, isolation?, ct) | Async version — commits on success, rolls back on exception |
+
+## Transactions
+The transaction wrappers manage the full lifecycle (open, commit, rollback, dispose) automatically:
+
+```csharp
+await _db.ExecuteInTransactionAsync(async (driver, tx, ct) =>
+{
+    var insertOrder = new Query("orders").AsInsert(new { CustomerId = 42, Total = 199.90m });
+    await driver.ExecuteAsync(insertOrder, tx, ct);
+
+    var updateStock = new Query("products").Where("id", 7).AsDecrement("stock", 1);
+    await driver.ExecuteAsync(updateStock, tx, ct);
+}, isolation: IsolationLevel.ReadCommitted, ct: cancellationToken);
+```
+
+If any operation throws, the transaction is automatically rolled back.
+
+## Structured Logging
+Implement IDatabaseLogger to intercept all SQL executions:
+
+```csharp
+public class MyDatabaseLogger : IDatabaseLogger
+{
+    private readonly ILogger<MyDatabaseLogger> _logger;
+
+    public MyDatabaseLogger(ILogger<MyDatabaseLogger> logger) => _logger = logger;
+
+    public Task OnBeforeExecuteAsync(string sql, object? bindings, CancellationToken ct = default)
+    {
+        _logger.LogDebug("Executing SQL: {Sql} | Bindings: {Bindings}", sql, bindings);
+        return Task.CompletedTask;
+    }
+
+    public Task OnAfterExecuteAsync(string sql, object? bindings, TimeSpan elapsed, CancellationToken ct = default)
+    {
+        _logger.LogInformation("SQL executed in {Elapsed}ms: {Sql}", elapsed.TotalMilliseconds, sql);
+        return Task.CompletedTask;
+    }
+
+    public Task OnErrorAsync(string sql, object? bindings, Exception ex, CancellationToken ct = default)
+    {
+        _logger.LogError(ex, "SQL failed: {Sql} | Bindings: {Bindings}", sql, bindings);
+        return Task.CompletedTask;
+    }
+}
+```
+
+Then wire it up:
+
+```csharp
+public class MyAppDatabase : MysqlCraftDriver
+{
+    public MyAppDatabase(string connectionString, MyDatabaseLogger logger)
+        : base(connectionString, logger) { }
+}
+```
+
+## Project Structure
+
+```text
+src/
+  MVFC.SQLCraft/               # Base abstractions (SQLCraftDriver, IDatabaseLogger, IQueryFactory)
+  MVFC.SQLCraft.Firebird/      # Firebird driver
+  MVFC.SQLCraft.MsSQL/         # SQL Server driver
+  MVFC.SQLCraft.Mysql/         # MySQL / MariaDB driver
+  MVFC.SQLCraft.Oracle/        # Oracle driver
+  MVFC.SQLCraft.PostgreSql/    # PostgreSQL driver
+  MVFC.SQLCraft.SQLite/        # SQLite driver
+tests/
+  # Unit and integration tests
+tools/
+  # Build tooling (Cake)
+```
+
+## Requirements
+.NET 9.0+
+
+SqlKata >= 2.x
+
+The underlying ADO.NET provider for each database (pulled automatically via NuGet)
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## License
+
+[Apache-2.0](LICENSE)

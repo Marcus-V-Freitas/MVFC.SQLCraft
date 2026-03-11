@@ -21,3 +21,4 @@ global using MVFC.SQLCraft.Oracle;
 global using MVFC.SQLCraft.Mysql;
 global using MVFC.SQLCraft.Tests.CustomDriver.CustomUtils;
 global using FluentAssertions;
+global using MVFC.SQLCraft.Tests.Helpers;

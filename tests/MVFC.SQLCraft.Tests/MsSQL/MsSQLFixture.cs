@@ -8,12 +8,12 @@ public sealed class SqlServerContainerFixture : IAsyncLifetime
     public async ValueTask InitializeAsync()
     {
         _container = new MsSqlBuilder("mcr.microsoft.com/mssql/server:2022-CU14-ubuntu-22.04")
-            .WithCleanUp(true)
-            .Build();
+                            .WithCleanUp(true)
+                            .Build();
 
-        await _container.StartAsync();
+        await _container.StartAsync().ConfigureAwait(true);
     }
 
     public async ValueTask DisposeAsync() => 
-        await _container.DisposeAsync();
+        await _container.DisposeAsync().ConfigureAwait(true);
 }

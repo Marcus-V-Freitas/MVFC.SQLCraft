@@ -12,9 +12,9 @@ public sealed class MySqlContainerFixture : IAsyncLifetime
             .WithCleanUp(true)
             .Build();
 
-        await _container.StartAsync();
+        await _container.StartAsync().ConfigureAwait(true);
     }
 
     public async ValueTask DisposeAsync() => 
-        await _container.DisposeAsync();
+        await _container.DisposeAsync().ConfigureAwait(true);
 }

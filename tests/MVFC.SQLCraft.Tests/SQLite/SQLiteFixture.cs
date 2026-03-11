@@ -11,7 +11,7 @@ public sealed class SQLiteFixture : IAsyncLifetime
         _databasePath = Path.GetTempFileName() + ".sqlite";
         ConnectionString = $"Data Source={_databasePath};Version=3;";
 
-        await Task.CompletedTask;
+        await Task.CompletedTask.ConfigureAwait(true);
     }
 
     public async ValueTask DisposeAsync()
@@ -19,6 +19,6 @@ public sealed class SQLiteFixture : IAsyncLifetime
         if (File.Exists(_databasePath))
             File.Delete(_databasePath);
 
-        await Task.CompletedTask;
+        await Task.CompletedTask.ConfigureAwait(true);
     }
 }
