@@ -1,4 +1,4 @@
-﻿Task("Default")
+Task("Default")
     .IsDependentOn("Test-Coverage")
     .Does(() =>
 {
@@ -59,7 +59,7 @@ Task("Test-Coverage")
     var rgPath     = FileExists(reportGeneratorExeWin) ? reportGeneratorExeWin : reportGeneratorExe;
 
     Information("Gerando relatório HTML...");
-    StartProcess(rgPath, $"-reports:\"{reportArgs}\" -targetdir:\"{reportDir}\" -reporttypes:\"Html;Cobertura;MarkdownSummaryGithub\" -assemblyfilters:\"+MVFC.SQLCraft.*\" -classfilters:\"-*.Tests.*;-*.Playground.*\"");
+    StartProcess(rgPath, $"-reports:\"{reportArgs}\" -targetdir:\"{reportDir}\" -reporttypes:\"Html;Cobertura;MarkdownSummaryGithub\" -assemblyfilters:\"+MVFC.SQLCraft*\" -classfilters:\"-*.Tests.*\"");
     Information($"Relatório gerado em: {reportDir}");
 });
 

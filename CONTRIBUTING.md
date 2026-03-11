@@ -1,4 +1,4 @@
-# Contributing to MVFC.SQLCraft
+﻿# Contributing to MVFC.SQLCraft
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ dotnet build MVFC.SQLCraft.slnx --configuration Release
 The tests require Docker to be running.
 
 ```sh
-dotnet test test/MVFC.SQLCraft.Tests/MVFC.SQLCraft.Tests.csproj --configuration Release
+dotnet test tests/MVFC.SQLCraft.Tests/MVFC.SQLCraft.Tests.csproj --configuration Release
 ```
 
 ## Adding a new helper
@@ -29,7 +29,7 @@ dotnet test test/MVFC.SQLCraft.Tests/MVFC.SQLCraft.Tests.csproj --configuration 
 2. Follow the structure of an existing helper (e.g. `MVFC.SQLCraft.Mysql`)
 3. Add the new project to `MVFC.SQLCraft.slnx`
 4. Add the package version to `Directory.Packages.props`
-5. Add integration tests in `test/MVFC.SQLCraft.Tests/`
+5. Add integration tests in `tests/MVFC.SQLCraft.Tests/`
 6. Update `README.md` and `README.pt-BR.md` with the new package entry
 
 ## Branch naming

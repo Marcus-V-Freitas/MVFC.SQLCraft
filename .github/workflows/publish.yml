@@ -32,7 +32,7 @@ jobs:
 
       - name: Test
         run: |
-          dotnet test test/MVFC.SQLCraft.Tests/MVFC.SQLCraft.Tests.csproj \
+          dotnet test tests/MVFC.SQLCraft.Tests/MVFC.SQLCraft.Tests.csproj \
             --configuration Release \
             --no-build
 
