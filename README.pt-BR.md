@@ -34,15 +34,15 @@ Aprendendo a usar um driver, todos os outros funcionam de forma idêntica.
 
 ## Pacotes
 
-| Pacote | Banco de Dados |
-|---|---|
-| [MVFC.SQLCraft](src/MVFC.SQLCraft/README.md) | Abstrações base |
-| [MVFC.SQLCraft.Mysql](src/MVFC.SQLCraft.Mysql/README.md) | MySQL / MariaDB |
-| [MVFC.SQLCraft.MsSQL](src/MVFC.SQLCraft.MsSQL/README.md) | Microsoft SQL Server |
-| [MVFC.SQLCraft.PostgreSql](src/MVFC.SQLCraft.PostgreSql/README.md) | PostgreSQL |
-| [MVFC.SQLCraft.SQLite](src/MVFC.SQLCraft.SQLite/README.md) | SQLite |
-| [MVFC.SQLCraft.Firebird](src/MVFC.SQLCraft.Firebird/README.md) | Firebird |
-| [MVFC.SQLCraft.Oracle](src/MVFC.SQLCraft.Oracle/README.md) | Oracle |
+| Pacote | Banco de Dados | Downloads |
+|---|---|---|
+| [MVFC.SQLCraft](src/MVFC.SQLCraft/README.md) | Abstrações base | ![Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft) |
+| [MVFC.SQLCraft.Mysql](src/MVFC.SQLCraft.Mysql/README.md) | MySQL / MariaDB | ![Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft.Mysql) |
+| [MVFC.SQLCraft.MsSQL](src/MVFC.SQLCraft.MsSQL/README.md) | Microsoft SQL Server | ![Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft.MsSQL) |
+| [MVFC.SQLCraft.PostgreSql](src/MVFC.SQLCraft.PostgreSql/README.md) | PostgreSQL | ![Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft.PostgreSql) |
+| [MVFC.SQLCraft.SQLite](src/MVFC.SQLCraft.SQLite/README.md) | SQLite | ![Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft.SQLite) |
+| [MVFC.SQLCraft.Firebird](src/MVFC.SQLCraft.Firebird/README.md) | Firebird | ![Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft.Firebird) |
+| [MVFC.SQLCraft.Oracle](src/MVFC.SQLCraft.Oracle/README.md) | Oracle | ![Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft.Oracle) |
 
 ***
 
