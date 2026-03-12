@@ -1,4 +1,4 @@
-Task("Default")
+﻿Task("Default")
     .IsDependentOn("Test-Coverage")
     .Does(() =>
 {
@@ -18,7 +18,7 @@ Task("Restore")
     .Does(() =>
 {
     Information("Restaurando pacotes...");
-    StartProcess("dotnet", "restore MVFC.SQLCraft.slnx");
+    DotNetRestore("MVFC.SQLCraft.slnx");
 });
 
 Task("Build")
@@ -26,7 +26,11 @@ Task("Build")
     .Does(() =>
 {
     Information("Build Release...");
-    StartProcess("dotnet", "build MVFC.SQLCraft.slnx --configuration Release --no-restore");
+    DotNetBuild("MVFC.SQLCraft.slnx", new DotNetBuildSettings
+    {
+        Configuration = "Release",
+        NoRestore = true
+    });
 });
 
 Task("Test-Coverage")
@@ -38,7 +42,16 @@ Task("Test-Coverage")
     var reportDir   = "./CoverageReport";
 
     Information("Executando testes com cobertura...");
-    StartProcess("dotnet", $"test \"{testProject}\" --configuration Release --no-build --collect:\"XPlat Code Coverage\" --results-directory \"{resultsDir}\" --settings coverage.runsettings --logger \"trx;LogFileName=test-results.trx\"");
+    DotNetTest(testProject, new DotNetTestSettings
+    {
+        Configuration = "Release",
+        NoBuild = true,
+        ResultsDirectory = resultsDir,
+        ArgumentCustomization = args => args
+            .Append("--collect:\"XPlat Code Coverage\"")
+            .Append("--settings coverage.runsettings")
+            .Append("--logger \"trx;LogFileName=test-results.trx\"")
+    });
 
     var reports = GetFiles("./coverage/**/coverage.cobertura.xml");
     if (reports == null || reports.Count == 0)
@@ -52,7 +65,7 @@ Task("Test-Coverage")
     if (!FileExists(reportGeneratorExe) && !FileExists(reportGeneratorExeWin))
     {
         Information("Instalando ReportGenerator em ./tools...");
-        StartProcess("dotnet", "tool install --tool-path ./tools dotnet-reportgenerator-globaltool");
+        DotNetTool("tool install --tool-path ./tools dotnet-reportgenerator-globaltool");
     }
 
     var reportArgs = string.Join(";", reports.Select(f => f.FullPath));
