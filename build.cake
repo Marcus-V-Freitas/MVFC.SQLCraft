@@ -65,7 +65,7 @@ Task("Test-Coverage")
     if (!FileExists(reportGeneratorExe) && !FileExists(reportGeneratorExeWin))
     {
         Information("Instalando ReportGenerator em ./tools...");
-        DotNetTool("tool install --tool-path ./tools dotnet-reportgenerator-globaltool");
+        StartProcess("dotnet", "tool install --tool-path ./tools dotnet-reportgenerator-globaltool");
     }
 
     var reportArgs = string.Join(";", reports.Select(f => f.FullPath));
