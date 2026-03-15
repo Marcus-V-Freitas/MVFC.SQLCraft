@@ -1,22 +1,22 @@
 # MVFC.SQLCraft.Mysql
 
-> 🇧🇷 [Leia em Português](README.pt-br.md)
+> 🇺🇸 [Read in English](README.md)
 
-Driver for MySQL/MariaDB access using [MVFC.SQLCraft] and [MySqlConnector](https://github.com/mysql-net/MySqlConnector).
+Driver para acesso ao MySQL/MariaDB usando [MVFC.SQLCraft] e [MySqlConnector](https://github.com/mysql-net/MySqlConnector).
 
-## Installation
+## Instalação
 
 ```sh
 dotnet add package MVFC.SQLCraft.Mysql
 ```
 
-## Features
+## Recursos
 
-- Simplified connection with MySQL/MariaDB
-- Compatible with .NET 9.0+
-- Integration with SqlKata
+- Conexão simplificada com MySQL/MariaDB
+- Compatível com .NET 9.0+
+- Integração com SqlKata
 
-## Example
+## Exemplo
 
 ```csharp
 using MVFC.SQLCraft.Mysql;
@@ -34,6 +34,6 @@ var insertQ = new Query("Persons")
 var affected = driver.Execute(insertQ);
 ```
 
-## License
+## Licença
 
 MIT

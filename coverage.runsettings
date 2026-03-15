@@ -6,7 +6,7 @@
         <Configuration>
           <Format>cobertura</Format>
           <Include>[MVFC.SQLCraft*]*</Include>
-          <Exclude>[*.Tests]*</Exclude>
+          <Exclude>[*.Tests]*,[*.Playground]*,[*.AppHost]*</Exclude>
           <ExcludeByAttribute>ExcludeFromCodeCoverage,GeneratedCode,CompilerGenerated</ExcludeByAttribute>
           <SingleHit>false</SingleHit>
           <UseSourceLink>true</UseSourceLink>

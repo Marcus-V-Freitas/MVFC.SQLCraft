@@ -1,22 +1,22 @@
 # MVFC.SQLCraft.MsSQL
 
-> 🇧🇷 [Leia em Português](README.pt-br.md)
+> 🇺🇸 [Read in English](README.md)
 
-Driver for Microsoft SQL Server access using [MVFC.SQLCraft] and [Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient).
+Driver para acesso ao Microsoft SQL Server usando [MVFC.SQLCraft] e [Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient).
 
-## Installation
+## Instalação
 
 ```sh
 dotnet add package MVFC.SQLCraft.MsSQL
 ```
 
-## Features
+## Recursos
 
-- Secure connection with SQL Server
-- Integration with SqlKata
-- Support for .NET 9.0+
+- Conexão segura com SQL Server
+- Integração com SqlKata
+- Suporte a .NET 9.0+
 
-## Example
+## Exemplo
 
 ```csharp
 using MVFC.SQLCraft.MsSQL;
@@ -34,6 +34,6 @@ var insertQ = new Query("Persons")
 var affected = driver.Execute(insertQ);
 ```
 
-## License
+## Licença
 
 MIT

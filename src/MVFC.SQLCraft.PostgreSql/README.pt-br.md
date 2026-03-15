@@ -1,22 +1,22 @@
 # MVFC.SQLCraft.PostgreSql
 
-> 🇧🇷 [Leia em Português](README.pt-br.md)
+> 🇺🇸 [Read in English](README.md)
 
-Driver for PostgreSQL access using [MVFC.SQLCraft] and [Npgsql](https://github.com/npgsql/npgsql).
+Driver para acesso ao PostgreSQL usando [MVFC.SQLCraft] e [Npgsql](https://github.com/npgsql/npgsql).
 
-## Installation
+## Instalação
 
 ```sh
 dotnet add package MVFC.SQLCraft.PostgreSql
 ```
 
-## Features
+## Recursos
 
-- Connection with PostgreSQL
-- Integration with SqlKata
-- Support for .NET 9.0+
+- Conexão com PostgreSQL
+- Integração com SqlKata
+- Suporte a .NET 9.0+
 
-## Example
+## Exemplo
 
 ```csharp
 using MVFC.SQLCraft.PostgreSql;
@@ -34,6 +34,6 @@ var insertQ = new Query("persons")
 var affected = driver.Execute(insertQ);
 ```
 
-## License
+## Licença
 
 MIT

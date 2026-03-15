@@ -1,9 +1,26 @@
-﻿# Changelog
+# Changelog
 
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [3.0.7] - 2026-03-14
+
+### Added
+
+- Multi-language support for all project documentation:
+  - English translations for all internal package READMEs.
+  - Portuguese versions (`README.pt-br.md`) for all internal packages.
+  - Quick-switch language links at the top of all documentation files.
+- Automated GitHub Release creation in CI workflow using `softprops/action-gh-release`.
+- Self-installing build tools in Cake script (`dotnet-coverage`, `ReportGenerator`).
+
+### Changed
+
+- Refactored `build.cake` to use `dotnet-coverage` for improved code coverage collection (supporting multi-process/Aspire).
+- Improved build script resilience by adding exit code validation for all internal processes.
+- Updated code coverage filtering to exclude `Playground` and `AppHost` projects from results and reports.
 
 ## [3.0.6] - 2026-03-12
 
@@ -120,6 +137,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Build pipeline via Cake (`build.cake`)
 - `IDatabaseLogger` for query logging
 
+[3.0.7]: https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/compare/v3.0.6...v3.0.7
+[3.0.6]: https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/compare/v3.0.5...v3.0.6
 [3.0.5]: https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/compare/v3.0.4...v3.0.5
 [3.0.4]: https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/compare/v3.0.3...v3.0.4
 [3.0.3]: https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/compare/v3.0.2...v3.0.3

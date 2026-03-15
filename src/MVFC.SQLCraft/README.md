@@ -1,47 +1,49 @@
 # MVFC.SQLCraft
 
-Biblioteca base para abstração e manipulação de bancos de dados SQL no .NET 9.0+.  
-Fornece interfaces, utilitários e integração com [SqlKata](https://github.com/sqlkata/querybuilder).
+> 🇧🇷 [Leia em Português](README.pt-br.md)
 
-## Instalação
+Base library for SQL database abstraction and manipulation in .NET 9.0+.  
+Provides interfaces, utilities, and integration with [SqlKata](https://github.com/sqlkata/querybuilder).
+
+## Installation
 
 ```sh
 dotnet add package MVFC.SQLCraft
 ```
 
-## Recursos
+## Features
 
-- Abstração de drivers SQL
-- Integração com múltiplos bancos
-- Factory para criação de conexões
+- SQL driver abstraction
+- Multi-database integration
+- Connection factory
 
-## Principais Métodos
+## Main Methods
 
 ```csharp
 
-// Retornar só um objeto
+// Return a single object
 T? QueryFirstOrDefault<T>(Query query, IDbTransaction? tx = null);
 Task<T?> QueryFirstOrDefaultAsync<T>(Query query, IDbTransaction? tx = null, CancellationToken ct = default);
 
-// Retornar múltiplos objetos
+// Return multiple objects
 IEnumerable<T> Query<T>(Query query, IDbTransaction? tx = null);
 Task<IEnumerable<T>> QueryAsync<T>(Query query, IDbTransaction? tx = null, CancellationToken ct = default);
 
-// Executar uma query e retornar linhas afetadas
+// Execute a query and return affected rows
 int Execute(Query query, IDbTransaction? tx = null);
 Task<int> ExecuteAsync(Query query, IDbTransaction? tx = null, CancellationToken ct = default);
 
-// Executar uma query bruta e retornar linhas afetadas
+// Execute a raw query and return affected rows
 int Execute(string sql, IDbTransaction? tx = null);
 Task<int> ExecuteAsync(string sql, IDbTransaction? tx = null, CancellationToken ct = default);
 
-// Realizar uma transação
+// Perform a transaction
 void ExecuteInTransaction(Action<SQLCraftDriver, IDbTransaction> action, IsolationLevel isolation = IsolationLevel.ReadCommitted);
 Task ExecuteInTransactionAsync(Func<SQLCraftDriver, IDbTransaction, CancellationToken, Task> action, IsolationLevel isolation = IsolationLevel.ReadCommitted, CancellationToken ct = default);
 
 ```
 
-### Exemplo de transação
+### Transaction Example
 
 ```csharp
 
@@ -81,6 +83,6 @@ await driver.ExecuteInTransactionAsync(async (x, t, ct) => {
 });
 ```
 
-## Licença
+## License
 
-MIT
+MIT

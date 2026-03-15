@@ -1,22 +1,22 @@
 # MVFC.SQLCraft.Firebird
 
-> 🇧🇷 [Leia em Português](README.pt-br.md)
+> 🇺🇸 [Read in English](README.md)
 
-Driver for Firebird access using [MVFC.SQLCraft] and [FirebirdSql.Data.FirebirdClient](https://github.com/FirebirdSQL/NETProvider).
+Driver para acesso ao Firebird usando o [MVFC.SQLCraft] e [FirebirdSql.Data.FirebirdClient](https://github.com/FirebirdSQL/NETProvider).
 
-## Installation
+## Instalação
 
 ```sh
 dotnet add package MVFC.SQLCraft.Firebird
 ```
 
-## Features
+## Recursos
 
-- Connection with Firebird
-- Integration with SqlKata
-- Support for .NET 9.0+
+- Conexão com Firebird
+- Integração com SqlKata
+- Suporte a .NET 9.0+
 
-## Example
+## Exemplo
 
 ```csharp
 using MVFC.SQLCraft.Firebird;
@@ -34,6 +34,6 @@ var insertQ = new Query("Persons")
 var affected = driver.Execute(insertQ);
 ```
 
-## License
+## Licença
 
 MIT

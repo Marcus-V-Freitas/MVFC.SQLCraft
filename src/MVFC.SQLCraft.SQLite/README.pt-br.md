@@ -1,22 +1,22 @@
 # MVFC.SQLCraft.SQLite
 
-> 🇧🇷 [Leia em Português](README.pt-br.md)
+> 🇺🇸 [Read in English](README.md)
 
-Driver for SQLite access using [MVFC.SQLCraft] and [System.Data.SQLite](https://system.data.sqlite.org/home/doc/trunk/www/index.md).
+Driver para acesso ao SQLite usando [MVFC.SQLCraft] e [System.Data.SQLite](https://system.data.sqlite.org/home/doc/trunk/www/index.md).
 
-## Installation
+## Instalação
 
 ```sh
 dotnet add package MVFC.SQLCraft.SQLite
 ```
 
-## Features
+## Recursos
 
-- Connection with SQLite
-- Integration with SqlKata
-- Support for .NET 9.0+
+- Conexão com SQLite
+- Integração com SqlKata
+- Suporte a .NET 9.0+
 
-## Example
+## Exemplo
 
 ```csharp
 using MVFC.SQLCraft.SQLite;
@@ -34,6 +34,6 @@ var affected = driver.Execute(insertQ);
 
 ```
 
-## License
+## Licença
 
 MIT

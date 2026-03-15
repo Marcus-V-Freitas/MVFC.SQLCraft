@@ -1,22 +1,22 @@
 # MVFC.SQLCraft.Oracle
 
-> 🇧🇷 [Leia em Português](README.pt-br.md)
+> 🇺🇸 [Read in English](README.md)
 
-Driver for Oracle access using [MVFC.SQLCraft] and [Oracle.ManagedDataAccess.Core](https://www.oracle.com/database/technologies/appdev/dotnet.html).
+Driver para acesso ao Oracle usando o [MVFC.SQLCraft] e [Oracle.ManagedDataAccess.Core](https://www.oracle.com/database/technologies/appdev/dotnet.html).
 
-## Installation
+## Instalação
 
 ```sh
 dotnet add package MVFC.SQLCraft.Oracle
 ```
 
-## Features
+## Recursos
 
-- Connection with Oracle
-- Integration with SqlKata
-- Support for .NET 9.0+
+- Conexão com Oracle
+- Integração com SqlKata
+- Suporte a .NET 9.0+
 
-## Example
+## Exemplo
 
 ```csharp
 using MVFC.SQLCraft.Oracle;
@@ -33,6 +33,6 @@ var insertQ = new Query("Persons").AsInsert(new { Name = "Alice" });
 var affected = driver.Execute(insertQ);
 ```
 
-## License
+## Licença
 
 MIT
