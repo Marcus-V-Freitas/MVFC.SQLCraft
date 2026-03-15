@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.8] - 2026-03-14
+
+### Added
+
+- Standardized project badges (CI, CodeCov, License, Platform, NuGet) across all internal README files (EN and PT-BR).
+
+### Changed
+
+- Enhanced CI workflow:
+  - Removed redundant .NET 9 setup (now using .NET 10 consistently).
+  - Added repository-relative "What's Changed" link to automated GitHub Release body.
+- Updated code coverage filtering to exclude `Playground`, `AppHost`, and `Tests` assemblies from collection and reporting.
+
 ## [3.0.7] - 2026-03-14
 
 ### Added
@@ -20,7 +33,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Refactored `build.cake` to use `dotnet-coverage` for improved code coverage collection (supporting multi-process/Aspire).
 - Improved build script resilience by adding exit code validation for all internal processes.
-- Updated code coverage filtering to exclude `Playground` and `AppHost` projects from results and reports.
 
 ## [3.0.6] - 2026-03-12
 
@@ -137,6 +149,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Build pipeline via Cake (`build.cake`)
 - `IDatabaseLogger` for query logging
 
+[3.0.8]: https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/compare/v3.0.7...v3.0.8
 [3.0.7]: https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/compare/v3.0.6...v3.0.7
 [3.0.6]: https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/compare/v3.0.5...v3.0.6
 [3.0.5]: https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/compare/v3.0.4...v3.0.5

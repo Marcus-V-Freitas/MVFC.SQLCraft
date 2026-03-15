@@ -2,6 +2,13 @@
 
 > 🇧🇷 [Leia em Português](README.pt-br.md)
 
+[![CI](https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/actions/workflows/ci.yml/badge.svg)](https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/Marcus-V-Freitas/MVFC.SQLCraft/branch/main/graph/badge.svg)](https://codecov.io/gh/Marcus-V-Freitas/MVFC.SQLCraft)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
+![Platform](https://img.shields.io/badge/.NET-9%20%7C%2010-blue)
+![NuGet Version](https://img.shields.io/nuget/v/MVFC.SQLCraft)
+![NuGet Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft)
+
 Base library for SQL database abstraction and manipulation in .NET 9.0+.  
 Provides interfaces, utilities, and integration with [SqlKata](https://github.com/sqlkata/querybuilder).
 

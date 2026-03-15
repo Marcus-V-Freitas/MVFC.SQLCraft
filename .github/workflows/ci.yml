@@ -20,11 +20,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup .NET 9
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '9.0.x'
-
       - name: Setup .NET 10
         uses: actions/setup-dotnet@v4
         with:
@@ -142,5 +137,8 @@ jobs:
           name: "Release ${{ github.ref_name }}"
           generate_release_notes: true
           body: |
+            ## What's Changed
+            See [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/main/CHANGELOG.md) for full details.
+
             ## Packages
             Published to [NuGet](https://www.nuget.org/profiles/marcuscosta).
