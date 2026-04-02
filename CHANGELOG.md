@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.0] - 2026-04-01
+
+### Added
+
+- Integrated `MinVer` for automated semantic versioning based on git tags
+- Centralized common project properties (`LangVersion`, `Nullable`, `ImplicitUsings`) and analysis configurations in `Directory.Build.props`
+
+### Changed
+
+- Simplified CI/CD workflow (`ci.yml`) by delegating package versioning entirely to MinVer during `dotnet pack`
+- Required full git history checkout (`fetch-depth: 0`) in GitHub Actions for accurate version resolution
+- Cleansed redundant configurations and metadata from individual `.csproj` files
+- Renamed `Directory.Build.target` to `Directory.Build.targets` for appropriate MSBuild recognition
+- Excluded test and playground projects from code coverage extraction (`codecov.yml` and `coverage.runsettings`)
+
+### Fixed
+
+- Made `CustomTestQueryFactory` implement `IDisposable` to prevent resource leakage
+
 ## [3.0.9] - 2026-03-21
 
 ### Changed
@@ -155,6 +174,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Build pipeline via Cake (`build.cake`)
 - `IDatabaseLogger` for query logging
 
+[3.1.0]: https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/compare/v3.0.9...v3.1.0
 [3.0.9]: https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/compare/v3.0.8...v3.0.9
 [3.0.8]: https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/compare/v3.0.7...v3.0.8
 [3.0.7]: https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/compare/v3.0.6...v3.0.7

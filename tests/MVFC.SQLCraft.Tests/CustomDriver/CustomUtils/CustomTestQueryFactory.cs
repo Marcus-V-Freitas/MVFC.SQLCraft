@@ -1,6 +1,6 @@
 ﻿namespace MVFC.SQLCraft.Tests.CustomDriver.CustomUtils;
 
-public sealed class CustomTestQueryFactory(IDbConnection conn, Compiler compiler, CustomTestCraftDriver driver) : IQueryFactory
+public sealed class CustomTestQueryFactory(IDbConnection conn, Compiler compiler, CustomTestCraftDriver driver) : IQueryFactory, IDisposable
 {
     private readonly CustomTestCraftDriver _driver = driver;
     private readonly QueryFactory _queryFactory = new(conn, compiler);
@@ -44,4 +44,5 @@ public sealed class CustomTestQueryFactory(IDbConnection conn, Compiler compiler
         _driver.ThrowInternalError
             ? throw new InvalidOperationException("Simulated exception in StatementAsync")
             : await _queryFactory.StatementAsync(sql, param, transaction, timeout, cancellationToken).ConfigureAwait(false);
+    public void Dispose() => _queryFactory.Dispose();
 }

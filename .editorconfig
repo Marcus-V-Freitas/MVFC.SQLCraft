@@ -424,9 +424,18 @@ dotnet_diagnostic.CA1707.severity = none
 # Async methods should have Async suffix
 dotnet_diagnostic.CA1715.severity = suggestion
 
+# Do not declare visible instance fields
+dotnet_diagnostic.CA1051.severity = none
+
+# Identifiers should not match keywords
+dotnet_diagnostic.CA1716.severity = none
+
 # ──────────────────────────────────────────────────────────
 # 13. SONARANALYZER — principais
 # ──────────────────────────────────────────────────────────
+
+# Types should be named in PascalCase
+dotnet_diagnostic.S101.severity = none
 
 # Não usar DateTime.Now (usar UtcNow)
 dotnet_diagnostic.S6566.severity = warning
