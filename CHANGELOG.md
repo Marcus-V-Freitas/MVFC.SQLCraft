@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [3.1.2] - 2026-06-26
+
+### Changed
+
+- Updated NuGet package dependencies.
+
 ## [3.1.1] - 2026-04-05
 
 ### Added
@@ -184,6 +190,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Build pipeline via Cake (`build.cake`)
 - `IDatabaseLogger` for query logging
 
+[3.1.2]: https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/compare/v3.1.1...v3.1.2
 [3.1.1]: https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/compare/v3.1.0...v3.1.1
 [3.1.0]: https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/compare/v3.0.9...v3.1.0
 [3.0.9]: https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/compare/v3.0.8...v3.0.9
