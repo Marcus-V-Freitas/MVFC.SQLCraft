@@ -3,28 +3,30 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.27.0.140913" />
+    <PackageVersion Include="Microsoft.Testing.Platform" Version="2.3.3" />
+    <PackageVersion Include="SSH.NET" Version="2026.0.0" />
+    <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.33.0.1635" />
     <PackageVersion Include="sqlkata" Version="4.0.1" />
     <PackageVersion Include="sqlkata.execution" Version="4.0.1" />
     <PackageVersion Include="microsoft.data.sqlclient" Version="7.0.2" />
     <PackageVersion Include="FirebirdSql.Data.FirebirdClient" Version="10.3.4" />
-    <PackageVersion Include="MySqlConnector" Version="2.6.1" />
-    <PackageVersion Include="Oracle.ManagedDataAccess.Core" Version="23.26.200" />
+    <PackageVersion Include="MySqlConnector" Version="2.6.2" />
+    <PackageVersion Include="Oracle.ManagedDataAccess.Core" Version="23.26.300" />
     <PackageVersion Include="Npgsql" Version="10.0.3" />
-    <PackageVersion Include="System.Data.SQLite" Version="2.0.3" />
-    <PackageVersion Include="Microsoft.Data.Sqlite.Core" Version="10.0.9" />
-    <PackageVersion Include="SourceGear.sqlite3" Version="3.50.4.5" />
-    <PackageVersion Include="SQLitePCLRaw.core" Version="3.0.3" />
+    <PackageVersion Include="System.Data.SQLite" Version="2.0.4" />
+    <PackageVersion Include="Microsoft.Data.Sqlite.Core" Version="10.0.11" />
+    <PackageVersion Include="SourceGear.sqlite3" Version="3.53.4" />
+    <PackageVersion Include="SQLitePCLRaw.core" Version="3.0.5" />
     <PackageVersion Include="coverlet.collector" Version="10.0.1" />
     <PackageVersion Include="FluentAssertions" Version="[7.0.0]" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.7.0" />
-    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
-    <PackageVersion Include="xunit.v3" Version="3.2.2" />
-    <PackageVersion Include="Testcontainers.Oracle" Version="4.12.0" />
-    <PackageVersion Include="Testcontainers.MySql" Version="4.12.0" />
-    <PackageVersion Include="Testcontainers.PostgreSql" Version="4.12.0" />
-    <PackageVersion Include="Testcontainers.MsSql" Version="4.12.0" />
-    <PackageVersion Include="Testcontainers.FirebirdSql" Version="4.12.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.9.0" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="4.0.0" />
+    <PackageVersion Include="xunit.v3" Version="4.0.0" />
+    <PackageVersion Include="Testcontainers.Oracle" Version="4.14.0" />
+    <PackageVersion Include="Testcontainers.MySql" Version="4.14.0" />
+    <PackageVersion Include="Testcontainers.PostgreSql" Version="4.14.0" />
+    <PackageVersion Include="Testcontainers.MsSql" Version="4.14.0" />
+    <PackageVersion Include="Testcontainers.FirebirdSql" Version="4.14.0" />
     <PackageVersion Include="MinVer" Version="7.0.0" />
   </ItemGroup>
 </Project>
