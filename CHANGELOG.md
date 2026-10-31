@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.4]
+
+### Added
+
+- Enabled `CentralPackageTransitivePinningEnabled` in `Directory.Packages.props` for transitive dependency pinning.
+- Added `System.Security.Cryptography.Pkcs` package dependency.
+- Added placeholder target `CopyEditorConfigToSolutionRoot` in `Directory.Build.targets`.
+
+### Changed
+
+- Replaced `SonarAnalyzer.CSharp` with `MVFC.Pack.Analyzers` in `Directory.Build.targets` and `Directory.Packages.props`.
+- Updated `.editorconfig` rules to suppress `MA0004` and `CA2007` (`ConfigureAwait`) diagnostics.
+- Restricted asset visibility (`IncludeAssets` and `PrivateAssets`) for `coverlet.collector` package reference in test project.
+- Updated NuGet package dependencies (`microsoft.data.sqlclient`, `Microsoft.Data.Sqlite.Core`, `Oracle.ManagedDataAccess.Core`, `Microsoft.Testing.Platform`, `Microsoft.NET.Test.Sdk`, `xunit.v3`, `xunit.runner.visualstudio`, `Testcontainers.*`, `coverlet.collector`, `MinVer`).
+
 ## [3.1.3] - 2026-08-30
 
 ### Added
@@ -202,6 +217,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Build pipeline via Cake (`build.cake`)
 - `IDatabaseLogger` for query logging
 
+[3.1.4]: https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/compare/v3.1.3...v3.1.4
 [3.1.3]: https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/compare/v3.1.2...v3.1.3
 [3.1.2]: https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/compare/v3.1.1...v3.1.2
 [3.1.1]: https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/compare/v3.1.0...v3.1.1
