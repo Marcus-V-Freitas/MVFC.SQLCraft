@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.0] - 2026-11-12
+
+### Added
+
+- Added support for `.NET 11` (`net11.0`) target framework across all library projects and test suite.
+- Configured .NET SDK roll-forward policy (`latestMajor`, `allowPrerelease: true`) in `global.json` to seamlessly support both .NET 10 and .NET 11 SDKs.
+- Added pinned local tool definitions for `dotnet-coverage` and `dotnet-reportgenerator-globaltool` in `.config/dotnet-tools.json`.
+
+### Changed
+
+- Updated CI/CD workflows (`ci.yml`) to install and build against .NET 9, .NET 10, and .NET 11 across test, coverage, and publish jobs.
+- Refactored `build.cake` to execute pinned tools via `dotnet tool run` instead of dynamic installation.
+- Upgraded test project (`MVFC.SQLCraft.Tests`) target framework to `net11.0`.
+- Centralized common package version properties in `Directory.Packages.props`.
+
 ## [3.1.4]
 
 ### Added

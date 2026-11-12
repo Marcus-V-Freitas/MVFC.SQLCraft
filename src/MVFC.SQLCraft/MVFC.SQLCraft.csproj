@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-	  <TargetFrameworks>net9.0;net10.0</TargetFrameworks>
+	  <TargetFrameworks>net9.0;net10.0;net11.0</TargetFrameworks>
 	  <Authors>Marcus Vinicius de Freitas Costa</Authors>
 	  <RepositoryType>git</RepositoryType>
 	  <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
@@ -10,7 +10,7 @@
 	  <PackageReadmeFile>README.md</PackageReadmeFile>
       <PackageProjectUrl>https://www.nuget.org/packages/MVFC.SQLCraft</PackageProjectUrl>
       <PackageTags>sql;sqlcraft;query;database;abstraction;dotnet;orm;multiplataforma;extensao</PackageTags>
-	  <Description>MVFC.SQLCraft: Biblioteca principal para abstração e execução de queries SQL multiplataforma em .NET 9. Base para extensões de bancos de dados.</Description>
+	  <Description>MVFC.SQLCraft: Biblioteca principal para abstração e execução de queries SQL multiplataforma em .NET 9+. Base para extensões de bancos de dados.</Description>
 	  <RepositoryUrl>https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/tree/master/MVFC.SQLCraft</RepositoryUrl>
 	</PropertyGroup>
 
