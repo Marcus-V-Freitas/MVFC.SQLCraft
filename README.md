@@ -5,7 +5,7 @@
 [![CI](https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/actions/workflows/ci.yml/badge.svg)](https://github.com/Marcus-V-Freitas/MVFC.SQLCraft/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/Marcus-V-Freitas/MVFC.SQLCraft/branch/main/graph/badge.svg)](https://codecov.io/gh/Marcus-V-Freitas/MVFC.SQLCraft)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
-![Platform](https://img.shields.io/badge/.NET-9%20%7C%2010-blue)
+![Platform](https://img.shields.io/badge/.NET-9%20%7C%2010%20%7C%2011-blue)
 ![NuGet Version](https://img.shields.io/nuget/v/MVFC.SQLCraft)
 ![NuGet Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft)
 
@@ -36,15 +36,15 @@ Once you understand one driver, all others work identically.
 
 ## Packages
 
-| Package | Database | Downloads |
-|---|---|---|
-| [MVFC.SQLCraft](src/MVFC.SQLCraft/README.md) | Base abstractions | ![Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft) |
-| [MVFC.SQLCraft.Mysql](src/MVFC.SQLCraft.Mysql/README.md) | MySQL / MariaDB | ![Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft.Mysql) |
-| [MVFC.SQLCraft.MsSQL](src/MVFC.SQLCraft.MsSQL/README.md) | Microsoft SQL Server | ![Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft.MsSQL) |
-| [MVFC.SQLCraft.PostgreSql](src/MVFC.SQLCraft.PostgreSql/README.md) | PostgreSQL | ![Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft.PostgreSql) |
-| [MVFC.SQLCraft.SQLite](src/MVFC.SQLCraft.SQLite/README.md) | SQLite | ![Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft.SQLite) |
-| [MVFC.SQLCraft.Firebird](src/MVFC.SQLCraft.Firebird/README.md) | Firebird | ![Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft.Firebird) |
-| [MVFC.SQLCraft.Oracle](src/MVFC.SQLCraft.Oracle/README.md) | Oracle | ![Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft.Oracle) |
+| Package                                                            | Database             | Downloads                                                              |
+| ------------------------------------------------------------------ | -------------------- | ---------------------------------------------------------------------- |
+| [MVFC.SQLCraft](src/MVFC.SQLCraft/README.md)                       | Base abstractions    | ![Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft)            |
+| [MVFC.SQLCraft.Mysql](src/MVFC.SQLCraft.Mysql/README.md)           | MySQL / MariaDB      | ![Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft.Mysql)      |
+| [MVFC.SQLCraft.MsSQL](src/MVFC.SQLCraft.MsSQL/README.md)           | Microsoft SQL Server | ![Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft.MsSQL)      |
+| [MVFC.SQLCraft.PostgreSql](src/MVFC.SQLCraft.PostgreSql/README.md) | PostgreSQL           | ![Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft.PostgreSql) |
+| [MVFC.SQLCraft.SQLite](src/MVFC.SQLCraft.SQLite/README.md)         | SQLite               | ![Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft.SQLite)     |
+| [MVFC.SQLCraft.Firebird](src/MVFC.SQLCraft.Firebird/README.md)     | Firebird             | ![Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft.Firebird)   |
+| [MVFC.SQLCraft.Oracle](src/MVFC.SQLCraft.Oracle/README.md)         | Oracle               | ![Downloads](https://img.shields.io/nuget/dt/MVFC.SQLCraft.Oracle)     |
 
 ***
 
@@ -119,27 +119,27 @@ All methods are defined on SQLCraftDriver and available in every driver.
 
 ### Query Methods
 
-| Method | Description |
-|---|---|
-| Query<T>(query, tx?) | Returns all matching rows |
-| QueryAsync<T>(query, tx?, ct) | Async version of Query<T> |
-| QueryFirstOrDefault<T>(query, tx?) | Returns the first matching row or null |
-| QueryFirstOrDefaultAsync<T>(query, tx?, ct) | Async version |
+| Method                                      | Description                            |
+| ------------------------------------------- | -------------------------------------- |
+| Query<T>(query, tx?)                        | Returns all matching rows              |
+| QueryAsync<T>(query, tx?, ct)               | Async version of Query<T>              |
+| QueryFirstOrDefault<T>(query, tx?)          | Returns the first matching row or null |
+| QueryFirstOrDefaultAsync<T>(query, tx?, ct) | Async version                          |
 
 ### Execute Methods
 
-| Method | Description |
-|---|---|
-| Execute(query, tx?) | Executes a SqlKata Query (INSERT/UPDATE/DELETE) |
-| Execute(sql, tx?) | Executes a raw SQL string |
-| ExecuteAsync(query, tx?, ct) | Async version for Query |
-| ExecuteAsync(sql, tx?, ct) | Async version for raw SQL |
+| Method                       | Description                                     |
+| ---------------------------- | ----------------------------------------------- |
+| Execute(query, tx?)          | Executes a SqlKata Query (INSERT/UPDATE/DELETE) |
+| Execute(sql, tx?)            | Executes a raw SQL string                       |
+| ExecuteAsync(query, tx?, ct) | Async version for Query                         |
+| ExecuteAsync(sql, tx?, ct)   | Async version for raw SQL                       |
 
 ### Transaction Methods
 
-| Method | Description |
-|---|---|
-| ExecuteInTransaction(action, isolation?) | Wraps a synchronous action in a managed transaction |
+| Method                                            | Description                                                 |
+| ------------------------------------------------- | ----------------------------------------------------------- |
+| ExecuteInTransaction(action, isolation?)          | Wraps a synchronous action in a managed transaction         |
 | ExecuteInTransactionAsync(action, isolation?, ct) | Async version — commits on success, rolls back on exception |
 
 ## Transactions
